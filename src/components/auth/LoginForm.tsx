@@ -10,15 +10,14 @@ interface LoginFormProps {
 
 
 function LoginForm({ error, onSubmit }: LoginFormProps) {
-  const [carnet, setCarnet] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-
-    const normalizedCarnet = carnet.trim();
+  const normalizedEmail = email.trim();
 
 
     if (!normalizedCarnet || !password) {

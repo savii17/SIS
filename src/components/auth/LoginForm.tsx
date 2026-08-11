@@ -20,13 +20,14 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
   const normalizedEmail = email.trim();
 
 
-    if (!normalizedCarnet || !password) {
+     if (!normalizedEmail || !password) {
       return;
     }
 
 
+
     onSubmit({
-      carnet: normalizedCarnet,
+      email: normalizedEmail,
       password,
     });
   };
@@ -38,16 +39,16 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
 
 
       <div>
-        <label htmlFor="carnet">Carnet de identidad</label>
+         <label htmlFor="email">Correo electrónico</label>
 
 
         <input
-          id="carnet"
-          name="carnet"
-          type="text"
-          value={carnet}
-          onChange={(event) => setCarnet(event.target.value)}
-          placeholder="Ingrese su carnet"
+          id="email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="Ingrese su correo electrónico"
           autoComplete="username"
           required
         />

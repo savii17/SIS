@@ -22,9 +22,14 @@ function HomePage() {
 
       {user ? (
         <>
-          <p>Bienvenido, {user.name}</p>
-          <p>Carnet: {user.carnet}</p>
-          <p>Rol: {user.role}</p>
+          <p>Bienvenido, {user.nombres} {user.apellido_paterno} {user.apellido_materno}</p>
+          <p>Email: {user.email}</p>
+          <p>Edad: {user.edad}</p>
+          <p>Nacionalidad: {user.nacionalidad}</p>
+          <p>Idioma: {user.idioma}</p>
+          <p>Estado: {user.estado}</p>
+          <p>Fecha de registro: {user.fecha_registrro}</p>
+          <p>Rol: {user.rol}</p>
 
 
           <button type="button" onClick={handleLogout}>

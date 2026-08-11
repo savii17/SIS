@@ -1,16 +1,30 @@
 [
   {
-    "id": "user-1",
-    "name": "Administrador",
-    "carnet": "1234567",
+  "nombres": "Administrador",
+    "apellido_paterno": "Sistema",
+    "apellido_materno": "Principal",
+    "edad": 35,
+    "email": "admin@example.com",
+    "nacionalidad": "Boliviana",
+    "idioma": "es",
     "password": "admin123",
-    "role": "ADMIN"
+    "rol": "ADMIN",
+    "estado": "ACTIVO",
+    "fecha_registrro": "2026-08-10"
   },
+
   {
-    "id": "user-2",
-    "name": "Usuario de prueba",
-    "carnet": "7654321",
+
+    "nombres": "Usuario",
+    "apellido_paterno": "De",
+    "apellido_materno": "Prueba",
+    "edad": 28,
+    "email": "usuario@example.com",
+    "nacionalidad": "Boliviana",
+    "idioma": "es",
     "password": "usuario123",
-    "role": "USUARIO"
+    "rol": "USUARIO",
+    "estado": "ACTIVO",
+    "fecha_registrro": "2026-08-10"
   }
 ]

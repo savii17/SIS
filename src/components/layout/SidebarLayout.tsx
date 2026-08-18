@@ -125,6 +125,7 @@ function SidebarLayout() {
           </div>
         </header>
 
+
         <section className="dashboard-hero" aria-labelledby="dashboard-hero-title">
           <div className="dashboard-hero__media" aria-label="Espacio para video o collage turístico">
             <video
@@ -148,6 +149,7 @@ function SidebarLayout() {
             <p>Este encabezado está listo para mostrar un video de fondo o un collage visual de tu sistema turístico.</p>
           </div>
         </section>
+
 
         <main className="app-shell__content">
           <Outlet />

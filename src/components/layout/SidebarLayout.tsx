@@ -125,6 +125,32 @@ function SidebarLayout() {
           </div>
         </header>
 
+
+        <section className="dashboard-hero" aria-labelledby="dashboard-hero-title">
+          <div className="dashboard-hero__media" aria-label="Espacio para video o collage turístico">
+            <video
+              className="dashboard-hero__video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/dashboard-collage.jpg"
+            >
+              <source src="/dashboard-header-video.mp4" type="video/mp4" />
+            </video>
+            <div className="dashboard-hero__placeholder">
+              Coloca tu video en public/dashboard-header-video.mp4
+            </div>
+          </div>
+
+          <div className="dashboard-hero__content">
+            <p className="eyebrow">Panel turístico</p>
+            <h2 id="dashboard-hero-title">Administra destinos, servicios y experiencias desde un solo lugar.</h2>
+            <p>Este encabezado está listo para mostrar un video de fondo o un collage visual de tu sistema turístico.</p>
+          </div>
+        </section>
+
+
         <main className="app-shell__content">
           <Outlet />
         </main>

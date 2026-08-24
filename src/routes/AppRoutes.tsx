@@ -7,6 +7,8 @@ import {
 import SidebarLayout from "../components/layout/SidebarLayout";
 import HomePage from "../pages/HomePage";
 import PlaceholderPage from "../pages/PlaceholderPage";
+import TouristPlaceDetailPage from "../pages/TouristPlaceDetailPage";
+import TouristPlacesPage from "../pages/TouristPlacesPage";
 import LoginPage from "../pages/auth/LoginPage";
 
 
@@ -18,8 +20,9 @@ function AppRoutes() {
           <Route path="/" element={<HomePage />} />
           <Route
             path="/lugares-turisticos"
-            element={<PlaceholderPage title="Lugares turísticos" description="Gestión de destinos y atractivos turísticos." />}
+            element={<TouristPlacesPage />}
           />
+          <Route path="/lugares-turisticos/:placeId" element={<TouristPlaceDetailPage />} />
           <Route
             path="/hospedajes"
             element={<PlaceholderPage title="Hospedajes" description="Administración de hoteles, hostales y alojamientos." />}

@@ -1,45 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-import { authRepository } from "../repositories/authRepository";
+import TouristPlaceCard from "../components/tourist/TouristPlaceCard";
+import { touristPlaces } from "../data/touristPlaces";
 
 
 function HomePage() {
-  const navigate = useNavigate();
-  const user = authRepository.getCurrentUser();
-
-
-  const handleLogout = () => {
-    authRepository.logout();
-    navigate("/login", { replace: true });
-  };
-
-
   return (
-    <main>
-      <h1>Página principal</h1>
+    <section className="home-page" aria-labelledby="home-title">
+      <div className="page-heading">
+        <div>
+          <p className="eyebrow">Descubre la región</p>
+          <h1 id="home-title">Lugares para inspirar tu próxima visita</h1>
+          <p>Explora una selección de destinos con la información esencial para tus visitantes.</p>
+        </div>
+        <Link className="see-all-link" to="/lugares-turisticos">Ver todos los lugares <span aria-hidden="true">→</span></Link>
+      </div>
 
-
-      {user ? (
-        <>
-          <p>Bienvenido, {user.nombres} {user.apellido_paterno} {user.apellido_materno}</p>
-          <p>Email: {user.email}</p>
-          <p>Edad: {user.edad}</p>
-          <p>Nacionalidad: {user.nacionalidad}</p>
-          <p>Idioma: {user.idioma}</p>
-          <p>Estado: {user.estado}</p>
-          <p>Fecha de registro: {user.fecha_registrro}</p>
-          <p>Rol: {user.rol}</p>
-
-
-          <button type="button" onClick={handleLogout}>
-            Cerrar sesión
-          </button>
-        </>
-      ) : (
-        <p>No existe una sesión activa.</p>
-      )}
-    </main>
+      <div className="tourist-places-grid tourist-places-grid--home">
+        {touristPlaces.slice(0, 3).map((place) => <TouristPlaceCard key={place.id} place={place} />)}
+      </div>
+    </section>
   );
 }
 

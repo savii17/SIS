@@ -89,6 +89,7 @@ export const touristPlaces: TouristPlace[] = [
 export const getTouristPlaceById = (id: string | undefined) =>
   touristPlaces.find((place) => place.id === id);
 
+
 const englishPlaces: Record<string, Omit<TouristPlace, "id" | "image">> = {
   "mirador-del-valle": { name: "Valley Lookout", category: "Nature", address: "Km 8, Valley scenic highway", hours: "Mon. to Sun. · 06:00 – 18:30", shortDescription: "Open valley views, short trails and memorable sunrises.", description: "A meeting point to take in the scenery, rest and start journeys along the valley trails.", highlights: ["Panoramic view", "Interpretive trail", "Rest area"], services: ["Parking", "Local guides", "Water station"] },
   "centro-historico": { name: "Historic Center", category: "Culture", address: "Main Square, downtown", hours: "Mon. to Sun. · 08:00 – 20:00", shortDescription: "Architecture, crafts and local flavors in the heart of the city.", description: "Walk streets filled with history, visit traditional shops and discover the community's cultural identity.", highlights: ["Traditional architecture", "Craft market", "Walking routes"], services: ["Tourist information", "Public restrooms", "Accessibility"] },
@@ -100,3 +101,4 @@ const englishPlaces: Record<string, Omit<TouristPlace, "id" | "image">> = {
 
 export const getLocalizedTouristPlace = (place: TouristPlace, language: "es" | "en") =>
   language === "en" ? { ...place, ...englishPlaces[place.id] } : place;
+

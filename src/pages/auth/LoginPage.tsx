@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 import LoginForm from "../../components/auth/LoginForm";
 import { authRepository } from "../../repositories/authRepository";
+import { useLanguage } from "../../i18n/useLanguage";
 
 
 import type { LoginCredentials } from "../../types/auth";
@@ -12,6 +13,7 @@ import type { LoginCredentials } from "../../types/auth";
 function LoginPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const { t } = useLanguage();
 
 
   if (authRepository.isAuthenticated()) {
@@ -27,7 +29,7 @@ function LoginPage() {
 
 
     if (!user) {
-       setError("El correo electrónico o la contraseña son incorrectos.");
+       setError(t("invalidLogin"));
     }
 
 
@@ -47,4 +49,3 @@ function LoginPage() {
 
 
 export default LoginPage;
-

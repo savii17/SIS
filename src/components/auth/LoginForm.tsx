@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FormEventHandler } from "react";
 import type { LoginCredentials } from "../../types/auth";
+import { useLanguage } from "../../i18n/useLanguage";
 
 
 interface LoginFormProps {
@@ -10,6 +11,7 @@ interface LoginFormProps {
 
 
 function LoginForm({ error, onSubmit }: LoginFormProps) {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -35,11 +37,11 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Iniciar sesión</h1>
+      <h1>{t("signIn")}</h1>
 
 
       <div>
-         <label htmlFor="email">Correo electrónico</label>
+         <label htmlFor="email">{t("email")}</label>
 
 
         <input
@@ -48,7 +50,7 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="Ingrese su correo electrónico"
+          placeholder={t("emailPlaceholder")}
           autoComplete="username"
           required
         />
@@ -56,7 +58,7 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
 
 
       <div>
-        <label htmlFor="password">Contraseña</label>
+        <label htmlFor="password">{t("password")}</label>
 
 
         <input
@@ -65,7 +67,7 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="Ingrese su contraseña"
+          placeholder={t("passwordPlaceholder")}
           autoComplete="current-password"
           required
         />
@@ -79,7 +81,7 @@ function LoginForm({ error, onSubmit }: LoginFormProps) {
       )}
 
 
-      <button type="submit">Ingresar</button>
+      <button type="submit">{t("login")}</button>
     </form>
   );
 }

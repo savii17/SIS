@@ -88,3 +88,17 @@ export const touristPlaces: TouristPlace[] = [
 
 export const getTouristPlaceById = (id: string | undefined) =>
   touristPlaces.find((place) => place.id === id);
+
+
+const englishPlaces: Record<string, Omit<TouristPlace, "id" | "image">> = {
+  "mirador-del-valle": { name: "Valley Lookout", category: "Nature", address: "Km 8, Valley scenic highway", hours: "Mon. to Sun. · 06:00 – 18:30", shortDescription: "Open valley views, short trails and memorable sunrises.", description: "A meeting point to take in the scenery, rest and start journeys along the valley trails.", highlights: ["Panoramic view", "Interpretive trail", "Rest area"], services: ["Parking", "Local guides", "Water station"] },
+  "centro-historico": { name: "Historic Center", category: "Culture", address: "Main Square, downtown", hours: "Mon. to Sun. · 08:00 – 20:00", shortDescription: "Architecture, crafts and local flavors in the heart of the city.", description: "Walk streets filled with history, visit traditional shops and discover the community's cultural identity.", highlights: ["Traditional architecture", "Craft market", "Walking routes"], services: ["Tourist information", "Public restrooms", "Accessibility"] },
+  "cascada-esmeralda": { name: "Emerald Waterfall", category: "Adventure", address: "La Esmeralda nature reserve, north entrance", hours: "Tue. to Sun. · 07:30 – 17:00", shortDescription: "A waterfall surrounded by vegetation for adventure lovers.", description: "A natural retreat with trails, viewpoints and spaces to connect with water and forest.", highlights: ["Natural waterfall", "Hiking", "Birdwatching"], services: ["Certified guides", "First aid", "Picnic area"] },
+  "museo-regional": { name: "Regional Museum", category: "History", address: "145 Culture Avenue, downtown", hours: "Tue. to Sat. · 09:00 – 17:00", shortDescription: "Collections that tell the stories and traditions of the region.", description: "Discover archaeological pieces, temporary exhibitions and stories that keep regional memory alive.", highlights: ["Permanent exhibition", "Interactive room", "Cultural shop"], services: ["Guided visits", "Audio guides", "Gift shop"] },
+  "playa-dorada": { name: "Golden Beach", category: "Beach", address: "Golden Bay, coastal sector", hours: "Mon. to Sun. · 06:00 – 19:00", shortDescription: "Light sand, calm sea and a sunset made for enjoying.", description: "A family beach with easy access, recreational activities and nearby dining options.", highlights: ["Sunsets", "Swimming area", "Coastal walk"], services: ["Lifeguards", "Restaurants", "Umbrella rental"] },
+  "ruta-del-cafe": { name: "Coffee Route", category: "Gastronomy", address: "Coffee farms in the upper area", hours: "Fri. to Sun. · 08:00 – 16:00", shortDescription: "Discover the origin of coffee through aromas, landscapes and tradition.", description: "An experience among coffee plantations to discover the local coffee growing, roasting and tasting process.", highlights: ["Coffee tasting", "Farm tour", "Roasting workshop"], services: ["Advance booking", "Tasting", "Product shop"] },
+};
+
+export const getLocalizedTouristPlace = (place: TouristPlace, language: "es" | "en") =>
+  language === "en" ? { ...place, ...englishPlaces[place.id] } : place;
+

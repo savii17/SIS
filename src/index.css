@@ -245,6 +245,42 @@ code {
   gap: 14px;
 }
 
+
+.language-selector {
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text-h);
+  display: inline-flex;
+  gap: 6px;
+  height: 44px;
+  padding: 0 10px;
+}
+
+.language-selector select {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  outline: none;
+}
+
+.sr-only {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
 .topbar__title {
   font-size: 28px;
   letter-spacing: -0.56px;

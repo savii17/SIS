@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-
 import { getLocalizedTouristPlace, getTouristPlaceById } from "../data/touristPlaces";
 import { useLanguage } from "../i18n/useLanguage";
 
@@ -13,19 +12,33 @@ function TouristPlaceDetailPage() {
       <section className="page-card empty-state">
         <p className="eyebrow">{t("placeNotFound")}</p>
         <h1>{t("placeNotFoundDescription")}</h1>
-        <Link className="tourist-place-card__link" to="/lugares-turisticos">{t("backToPlaces")} →</Link>
+        <Link className="tourist-place-card__link" to="/lugares-turisticos">
+          {t("backToPlaces")} →
+        </Link>
       </section>
     );
   }
+
   const localizedPlace = getLocalizedTouristPlace(place, language);
 
   return (
     <article className="tourist-detail">
-      <Link className="back-link" to="/lugares-turisticos">← {t("backToPlaces")}</Link>
+      <Link className="back-link" to="/lugares-turisticos">
+        ← {t("backToPlaces")}
+      </Link>
+      
       <header className="tourist-detail__hero">
-        <img src={localizedPlace.image} alt={`${t("touristPlaces")}: ${localizedPlace.name}`} onError={(event) => { event.currentTarget.hidden = true; }} />
+        <img
+          src={localizedPlace.image}
+          alt={`${t("touristPlaces")}: ${localizedPlace.name}`}
+          onError={(event) => {
+            event.currentTarget.hidden = true;
+          }}
+        />
         <div className="tourist-detail__hero-content">
-          <span className="tourist-place-card__category">{localizedPlace.category}</span>
+          <span className="tourist-place-card__category">
+            {localizedPlace.category}
+          </span>
           <h1>{localizedPlace.name}</h1>
           <p>{localizedPlace.shortDescription}</p>
         </div>
@@ -37,15 +50,36 @@ function TouristPlaceDetailPage() {
           <h2>{t("memorableExperience")}</h2>
           <p>{localizedPlace.description}</p>
           <div className="detail-list-grid">
-            <div><h3>{t("highlights")}</h3><ul>{localizedPlace.highlights.map((item) => <li key={item}>{item}</li>)}</ul></div>
-            <div><h3>{t("availableServices")}</h3><ul>{localizedPlace.services.map((item) => <li key={item}>{item}</li>)}</ul></div>
+            <div>
+              <h3>{t("highlights")}</h3>
+              <ul>
+                {localizedPlace.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>{t("availableServices")}</h3>
+              <ul>
+                {localizedPlace.services.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
+
         <aside className="tourist-detail__info" aria-label={t("planVisit")}>
           <p className="eyebrow">{t("planVisit")}</p>
           <dl>
-            <div><dt>{t("address")}</dt><dd>{localizedPlace.address}</dd></div>
-            <div><dt>{t("hours")}</dt><dd>{localizedPlace.hours}</dd></div>
+            <div>
+              <dt>{t("address")}</dt>
+              <dd>{localizedPlace.address}</dd>
+            </div>
+            <div>
+              <dt>{t("hours")}</dt>
+              <dd>{localizedPlace.hours}</dd>
+            </div>
           </dl>
           <button type="button">{t("savePlace")}</button>
         </aside>

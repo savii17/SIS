@@ -4,6 +4,7 @@ import { useLanguage } from "../i18n/useLanguage";
 
 function TouristPlacesPage() {
   const { t } = useLanguage();
+
   return (
     <section className="tourist-places-page" aria-labelledby="tourist-places-title">
       <div className="page-heading">
@@ -15,7 +16,9 @@ function TouristPlacesPage() {
         <span className="results-count">{touristPlaces.length} {t("placesCount")}</span>
       </div>
       <div className="tourist-places-grid">
-        {touristPlaces.map((place) => <TouristPlaceCard key={place.id} place={place} />)}
+        {touristPlaces.map((place) => (
+          <TouristPlaceCard key={place.id} place={place} />
+        ))}
       </div>
     </section>
   );

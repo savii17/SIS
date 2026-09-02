@@ -1,0 +1,11 @@
+import { createContext } from "react";
+
+import type { Language } from "./LanguageContext";
+
+export type LanguageContextValue = {
+  language: Language;
+  setLanguage: (language: Language) => void;
+  t: (key: "language" | "spanish" | "english" | "dashboard" | "systemTitle" | "hideSidebar" | "showSidebar" | "navigation" | "home" | "management" | "configuration" | "touristPlaces" | "accommodations" | "restaurants" | "emergencies" | "user" | "users" | "categories" | "services" | "settings" | "administrator" | "notifications" | "viewNotifications" | "accountProfile" | "guest" | "noSession" | "heroKicker" | "heroTitle" | "heroDescription" | "videoSlot" | "discover" | "homeTitle" | "homeDescription" | "allPlaces" | "dashboardStatistics" | "active" | "explore" | "placesDescription" | "placesCount" | "location" | "hours" | "seeMore" | "backToPlaces" | "placeNotFound" | "placeNotFoundDescription" | "aboutPlace" | "memorableExperience" | "highlights" | "availableServices" | "planVisit" | "address" | "savePlace" | "module" | "signIn" | "email" | "password" | "emailPlaceholder" | "passwordPlaceholder" | "login" | "invalidLogin" | "accommodationsDescription" | "restaurantsDescription" | "emergenciesDescription" | "userDescription" | "categoriesDescription" | "servicesDescription" | "settingsDescription" | "administratorDescription") => string;
+};
+
+export const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);

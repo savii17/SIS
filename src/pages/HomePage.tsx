@@ -1,45 +1,30 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-import { authRepository } from "../repositories/authRepository";
+import TouristPlaceCard from "../components/tourist/TouristPlaceCard";
+import StatisticsCards from "../components/dashboard/StatisticsCards";
+import { touristPlaces } from "../data/touristPlaces";
+import { useLanguage } from "../i18n/useLanguage";
 
 
 function HomePage() {
-  const navigate = useNavigate();
-  const user = authRepository.getCurrentUser();
-
-
-  const handleLogout = () => {
-    authRepository.logout();
-    navigate("/login", { replace: true });
-  };
-
-
+  const { t } = useLanguage();
   return (
-    <main>
-      <h1>Página principal</h1>
+    <section className="home-page" aria-labelledby="home-title">
+      <StatisticsCards />
 
+      <div className="page-heading">
+        <div>
+          <p className="eyebrow">{t("discover")}</p>
+          <h1 id="home-title">{t("homeTitle")}</h1>
+          <p>{t("homeDescription")}</p>
+        </div>
+        <Link className="see-all-link" to="/lugares-turisticos">{t("allPlaces")} <span aria-hidden="true">→</span></Link>
+      </div>
 
-      {user ? (
-        <>
-          <p>Bienvenido, {user.nombres} {user.apellido_paterno} {user.apellido_materno}</p>
-          <p>Email: {user.email}</p>
-          <p>Edad: {user.edad}</p>
-          <p>Nacionalidad: {user.nacionalidad}</p>
-          <p>Idioma: {user.idioma}</p>
-          <p>Estado: {user.estado}</p>
-          <p>Fecha de registro: {user.fecha_registrro}</p>
-          <p>Rol: {user.rol}</p>
-
-
-          <button type="button" onClick={handleLogout}>
-            Cerrar sesión
-          </button>
-        </>
-      ) : (
-        <p>No existe una sesión activa.</p>
-      )}
-    </main>
+      <div className="tourist-places-grid tourist-places-grid--home">
+        {touristPlaces.slice(0, 3).map((place) => <TouristPlaceCard key={place.id} place={place} />)}
+      </div>
+    </section>
   );
 }
 

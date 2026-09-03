@@ -13,19 +13,34 @@ type TouristPlaceCardProps = {
 function TouristPlaceCard({ place }: TouristPlaceCardProps) {
   const { language, t } = useLanguage();
 
-  const localizedPlace = getLocalizedTouristPlace(place, language);
+  const localizedPlace = getLocalizedTouristPlace(place, language) as unknown as Record<string, any>;
+
+  // support optional fields that may not exist yet in the type
+  const image = (localizedPlace.imagenes_url && localizedPlace.imagenes_url.length > 0)
+    ? localizedPlace.imagenes_url[0]
+    : localizedPlace.image;
+
+  const price = localizedPlace.precio_entrada ?? localizedPlace.price ?? null;
+  const rating = localizedPlace.calificacion ?? localizedPlace.rating ?? null;
 
   return (
     <article className="tourist-place-card">
       <div className="tourist-place-card__image-wrap">
-        <img
-          className="tourist-place-card__image"
-          src={localizedPlace.image}
-          alt={`${t("touristPlaces")}: ${localizedPlace.name}`}
-          onError={(event) => {
-            event.currentTarget.hidden = true;
-          }}
-        />
+        {image ? (
+          <img
+            className="tourist-place-card__image"
+            src={image}
+            alt={`${t("touristPlaces")}: ${localizedPlace.name}`}
+            onError={(event) => {
+              // hide failed image and let placeholder show
+              event.currentTarget.hidden = true;
+            }}
+          />
+        ) : (
+          <div className="tourist-place-card__image--fallback" aria-hidden>
+            ⌁
+          </div>
+        )}
 
         <span className="tourist-place-card__category">
           {localizedPlace.category}
@@ -57,6 +72,21 @@ function TouristPlaceCard({ place }: TouristPlaceCardProps) {
             <dd>{localizedPlace.hours}</dd>
           </div>
         </dl>
+
+        <div className="tourist-place-card__meta">
+          {rating != null && (
+            <div className="tourist-place-card__rating" aria-hidden>
+              <strong>{rating}</strong>
+              <span>{" ★"}</span>
+            </div>
+          )}
+
+          {price != null && (
+            <div className="tourist-place-card__price">
+              <strong>{price}</strong>
+            </div>
+          )}
+        </div>
 
         <Link
           className="tourist-place-card__link"

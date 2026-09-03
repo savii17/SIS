@@ -1,4 +1,6 @@
 import { useLanguage } from "../../i18n/useLanguage";
+import { touristPlaces } from "../../data/touristPlaces";
+import initialUsers from "../../data/users.json";
 
 type Statistic = {
   id: "places" | "accommodations" | "restaurants" | "emergencies" | "users";
@@ -23,13 +25,14 @@ function StatisticIcon({ icon }: { icon: Statistic["icon"] }) {
 
 function StatisticsCards() {
   const { t } = useLanguage();
-  const statistics: Statistic[] = [
-    { id: "places", title: t("touristPlaces"), value: 24, active: 20, increase: 8, icon: "location" },
+
+  const statistics = [
+    { id: "places", title: t("touristPlaces"), value: touristPlaces.length, active: Math.max(0, touristPlaces.length - 2), increase: 8, icon: "location" },
     { id: "accommodations", title: t("accommodations"), value: 18, active: 15, increase: 5, icon: "bed" },
     { id: "restaurants", title: t("restaurants"), value: 32, active: 28, increase: 12, icon: "restaurant" },
     { id: "emergencies", title: t("emergencies"), value: 12, active: 10, increase: 2, icon: "emergency" },
-    { id: "users", title: t("users"), value: 45, active: 40, increase: 7, icon: "users" },
-  ];
+    { id: "users", title: t("users"), value: (initialUsers as any[]).length, active: Math.max(0, (initialUsers as any[]).length - 5), increase: 7, icon: "users" },
+  ] as const;
 
   return (
     <section className="statistics-grid" aria-label={t("dashboardStatistics")}>
@@ -40,7 +43,7 @@ function StatisticsCards() {
             <p className="statistic-card__title">{statistic.title}</p>
             <strong className="statistic-card__value">{statistic.value}</strong>
             <div className="statistic-card__footer">
-              <span>{t("active")}: {statistic.active}</span>
+              <span>{t("active")}:{" "}{statistic.active}</span>
               <span className="statistic-card__increase">↑ {statistic.increase}%</span>
             </div>
           </div>

@@ -1,4 +1,3 @@
-```tsx
 import { Link } from "react-router-dom";
 
 import {
@@ -71,4 +70,3 @@ function TouristPlaceCard({ place }: TouristPlaceCardProps) {
 }
 
 export default TouristPlaceCard;
-```

@@ -31,7 +31,7 @@ function StatisticsCards() {
     { id: "accommodations", title: t("accommodations"), value: 18, active: 15, increase: 5, icon: "bed" },
     { id: "restaurants", title: t("restaurants"), value: 32, active: 28, increase: 12, icon: "restaurant" },
     { id: "emergencies", title: t("emergencies"), value: 12, active: 10, increase: 2, icon: "emergency" },
-    { id: "users", title: t("users"), value: (initialUsers as any[]).length, active: Math.max(0, (initialUsers as any[]).length - 5), increase: 7, icon: "users" },
+    { id: "users", title: t("users"), value: initialUsers.length, active: Math.max(0, initialUsers.length - 5), increase: 7, icon: "users" },
   ] as const;
 
   return (

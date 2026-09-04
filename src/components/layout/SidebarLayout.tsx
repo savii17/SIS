@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 import { authRepository } from "../../repositories/authRepository";
 import { useLanguage } from "../../i18n/useLanguage";
+import TourismHero from "../dashboard/TourismHero";
 
 function SidebarLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -263,50 +264,7 @@ function SidebarLayout() {
           </div>
         </header>
 
-        {/* HERO */}
-        <section
-          className="dashboard-hero"
-          aria-labelledby="dashboard-hero-title"
-        >
-          <div
-            className="dashboard-hero__media"
-            aria-label={t("videoSlot")}
-          >
-            <video
-              className="dashboard-hero__video"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/dashboard-collage.jpg"
-            >
-              <source
-                src="/dashboard-header-video.mp4"
-                type="video/mp4"
-              />
-
-              Tu navegador no soporta la reproducción de video.
-            </video>
-
-            <div className="dashboard-hero__placeholder">
-              {t("videoSlot")}
-            </div>
-          </div>
-
-          <div className="dashboard-hero__content">
-            <p className="eyebrow">
-              {t("heroKicker")}
-            </p>
-
-            <h2 id="dashboard-hero-title">
-              {t("heroTitle")}
-            </h2>
-
-            <p>
-              {t("heroDescription")}
-            </p>
-          </div>
-        </section>
+        <TourismHero />
 
         {/* CONTENIDO DE LAS RUTAS */}
         <main className="app-shell__content">

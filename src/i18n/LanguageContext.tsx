@@ -35,13 +35,18 @@ const translations = {
     guest: "Invitado",
     noSession: "Sin sesión",
 
-    heroKicker: "Panel turístico",
-    heroTitle:
-      "Administra destinos, servicios y experiencias desde un solo lugar.",
+    heroKicker: "Sistema de gestión turística",
+    heroTitleLineOne: "Gestión Turística",
+    heroTitleLineTwo: "de Sucre",
     heroDescription:
-      "Este encabezado está listo para mostrar un video de fondo o un collage visual de tu sistema turístico.",
-    videoSlot:
-      "Coloca tu video en public/dashboard-header-video.mp4",
+      "Administra y organiza la información turística de la ciudad.",
+    heroInformation: "Información turística de Sucre",
+    sunny: "Soleado",
+    sucreLocation: "Sucre, Chuquisaca",
+    altitude: "2.790 msnm",
+    exploreSucre: "Explorar Sucre",
+    heroSlides: "Imágenes del hero turístico",
+    heroSlide: "Imagen",
 
     discover: "Descubre la región",
     homeTitle: "Lugares para inspirar tu próxima visita",
@@ -134,13 +139,18 @@ const translations = {
     guest: "Guest",
     noSession: "No session",
 
-    heroKicker: "Tourism dashboard",
-    heroTitle:
-      "Manage destinations, services and experiences from one place.",
+    heroKicker: "Tourism management system",
+    heroTitleLineOne: "Tourism Management",
+    heroTitleLineTwo: "of Sucre",
     heroDescription:
-      "This header is ready to display a background video or a visual collage for your tourism system.",
-    videoSlot:
-      "Place your video in public/dashboard-header-video.mp4",
+      "Manage and organize the city's tourist information.",
+    heroInformation: "Sucre tourism information",
+    sunny: "Sunny",
+    sucreLocation: "Sucre, Chuquisaca",
+    altitude: "2,790 m a.s.l.",
+    exploreSucre: "Explore Sucre",
+    heroSlides: "Tourism hero images",
+    heroSlide: "Image",
 
     discover: "Discover the region",
     homeTitle: "Places to inspire your next visit",
@@ -235,4 +245,3 @@ export function LanguageProvider({
     </LanguageContext.Provider>
   );
 }
-

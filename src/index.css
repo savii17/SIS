@@ -614,3 +614,135 @@ code {
     align-items: flex-start;
   }
 }
+.featured-tourist-places {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(28, 24, 35, 0.07);
+  padding: 28px;
+}
+
+.featured-tourist-places__heading {
+  align-items: end;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.featured-tourist-places__heading h1 {
+  font-size: 28px;
+  margin: 4px 0 8px;
+}
+
+.see-all-link,
+.tourist-place-card__link {
+  align-items: center;
+  color: var(--accent);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 750;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.see-all-link:hover,
+.tourist-place-card__link:hover {
+  text-decoration: underline;
+}
+
+.tourist-places-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+}
+
+.tourist-places-grid--featured {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tourist-place-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(28, 24, 35, 0.07);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tourist-place-card__image-wrap {
+  background: linear-gradient(135deg, #195d61, #8b4a22);
+  height: 170px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tourist-place-card__image,
+.tourist-detail__image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.tourist-place-card__image--fallback {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(16, 84, 89, .94), rgba(126, 67, 30, .9));
+  color: #fff;
+  display: flex;
+  font-size: 28px;
+  font-weight: 750;
+  height: 100%;
+  justify-content: center;
+  letter-spacing: .08em;
+}
+
+.tourist-place-card__category {
+  background: rgba(255, 255, 255, .92);
+  border-radius: 999px;
+  color: #184b4e;
+  font-size: 11px;
+  font-weight: 750;
+  left: 12px;
+  padding: 5px 9px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 12px;
+}
+
+.tourist-place-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+}
+
+.tourist-place-card__body h2 { font-size: 19px; margin: 0; }
+.tourist-place-card__description { font-size: 13px; line-height: 1.45; }
+.tourist-place-card__details { display: grid; gap: 8px; margin: 0; }
+.tourist-place-card__details div { display: grid; gap: 2px; }
+.tourist-place-card__details dt { color: var(--text-h); font-size: 12px; font-weight: 700; }
+.tourist-place-card__details dd { font-size: 12px; margin: 0; }
+.tourist-place-card__meta { align-items: center; display: flex; gap: 10px; margin-top: auto; }
+.tourist-place-card__rating { color: #ad6600; font-size: 13px; font-weight: 750; }
+.tourist-place-card__price { font-size: 12px; font-weight: 700; }
+.tourist-place-card__link { background: var(--accent); border-radius: 10px; color: #fff; justify-content: center; margin-top: 2px; padding: 10px 14px; }
+.tourist-place-card__link:hover { color: #fff; text-decoration: none; filter: brightness(.94); }
+
+.tourist-detail__image { border-radius: 14px; max-height: 360px; }
+.tourist-detail__facts { display: flex; flex-wrap: wrap; gap: 16px; margin: 0; }
+.tourist-detail__facts div { background: var(--accent-bg); border-radius: 10px; padding: 10px 14px; }
+.tourist-detail__facts dt { color: var(--text-h); font-size: 12px; font-weight: 700; }
+.tourist-detail__facts dd { margin: 2px 0 0; }
+
+@media (max-width: 1100px) {
+  .tourist-places-grid--featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .featured-tourist-places { padding: 20px; }
+  .featured-tourist-places__heading { align-items: flex-start; flex-direction: column; }
+  .tourist-places-grid--featured { grid-template-columns: 1fr; }
+}

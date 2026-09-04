@@ -1,4 +1,3 @@
-```tsx
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { LanguageContext } from "./languageStore";
@@ -49,6 +48,10 @@ const translations = {
     homeDescription:
       "Explora una selección de destinos con la información esencial para tus visitantes.",
     allPlaces: "Ver todos los lugares",
+    featuredKicker: "Selección especial",
+    featuredPlaces: "Lugares Turísticos Destacados",
+    featuredDescription: "Descubre los sitios más emblemáticos de Sucre",
+    viewDetails: "Ver detalles",
 
     active: "Activos",
     dashboardStatistics: "Estadísticas del panel",
@@ -144,6 +147,10 @@ const translations = {
     homeDescription:
       "Explore a selection of destinations with the essential information for your visitors.",
     allPlaces: "View all places",
+    featuredKicker: "Featured selection",
+    featuredPlaces: "Featured tourist places",
+    featuredDescription: "Discover Sucre’s most emblematic sites",
+    viewDetails: "View details",
 
     active: "Active",
     dashboardStatistics: "Dashboard statistics",
@@ -228,5 +235,4 @@ export function LanguageProvider({
     </LanguageContext.Provider>
   );
 }
-```
 

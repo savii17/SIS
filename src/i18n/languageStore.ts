@@ -42,6 +42,10 @@ export type LanguageContextValue = {
       | "homeTitle"
       | "homeDescription"
       | "allPlaces"
+      | "featuredKicker"
+      | "featuredPlaces"
+      | "featuredDescription"
+      | "viewDetails"
       | "dashboardStatistics"
       | "active"
       | "explore"
@@ -76,16 +80,6 @@ export type LanguageContextValue = {
       | "servicesDescription"
       | "settingsDescription"
       | "administratorDescription"
-      | "featuredKicker"
-      | "featuredPlaces"
-      | "price"
-      | "rating"
-      | "coordinates"
-      | "routes"
-      | "duration"
-      | "distance"
-      | "transportType"
-      | "viewOnMap"
   ) => string;
 };
 

@@ -12,16 +12,13 @@ type TouristPlaceCardProps = {
 
 function TouristPlaceCard({ place }: TouristPlaceCardProps) {
   const { language, t } = useLanguage();
-
-  const localizedPlace = getLocalizedTouristPlace(place, language) as unknown as Record<string, any>;
-
-  // support optional fields that may not exist yet in the type
-  const image = (localizedPlace.imagenes_url && localizedPlace.imagenes_url.length > 0)
-    ? localizedPlace.imagenes_url[0]
-    : localizedPlace.image;
-
-  const price = localizedPlace.precio_entrada ?? localizedPlace.price ?? null;
-  const rating = localizedPlace.calificacion ?? localizedPlace.rating ?? null;
+  const localizedPlace = getLocalizedTouristPlace(place, language);
+  const image = localizedPlace.imagenes_url?.[0] ?? localizedPlace.image;
+  const location = localizedPlace.ubicacion ?? localizedPlace.address;
+  const hours =
+    localizedPlace.horario_inicio && localizedPlace.horario_fin
+      ? `${localizedPlace.horario_inicio} – ${localizedPlace.horario_fin}`
+      : localizedPlace.hours;
 
   return (
     <article className="tourist-place-card">
@@ -30,69 +27,54 @@ function TouristPlaceCard({ place }: TouristPlaceCardProps) {
           <img
             className="tourist-place-card__image"
             src={image}
-            alt={`${t("touristPlaces")}: ${localizedPlace.name}`}
-            onError={(event) => {
-              // hide failed image and let placeholder show
-              event.currentTarget.hidden = true;
-            }}
+            alt={`${t("touristPlaces")}: ${localizedPlace.nombre_lugar ?? localizedPlace.name}`}
           />
         ) : (
-          <div className="tourist-place-card__image--fallback" aria-hidden>
-            ⌁
+          <div
+            className="tourist-place-card__image--fallback"
+            role="img"
+            aria-label={`${t("touristPlaces")}: ${localizedPlace.nombre_lugar ?? localizedPlace.name}`}
+          >
+            <span>Sucre</span>
           </div>
         )}
-
         <span className="tourist-place-card__category">
           {localizedPlace.category}
-        </span>
-
-        <span
-          className="tourist-place-card__image-placeholder"
-          aria-hidden="true"
-        >
-          ⌁
         </span>
       </div>
 
       <div className="tourist-place-card__body">
-        <h2>{localizedPlace.name}</h2>
-
+        <h2>{localizedPlace.nombre_lugar ?? localizedPlace.name}</h2>
         <p className="tourist-place-card__description">
-          {localizedPlace.shortDescription}
+          {localizedPlace.descripcion ?? localizedPlace.shortDescription}
         </p>
 
         <dl className="tourist-place-card__details">
           <div>
-            <dt>{t("location")}</dt>
-            <dd>{localizedPlace.address}</dd>
+            <dt><span aria-hidden="true">⌖</span> {t("location")}</dt>
+            <dd>{location}</dd>
           </div>
-
           <div>
-            <dt>{t("hours")}</dt>
-            <dd>{localizedPlace.hours}</dd>
+            <dt><span aria-hidden="true">◷</span> {t("hours")}</dt>
+            <dd>{hours}</dd>
           </div>
         </dl>
 
         <div className="tourist-place-card__meta">
-          {rating != null && (
-            <div className="tourist-place-card__rating" aria-hidden>
-              <strong>{rating}</strong>
-              <span>{" ★"}</span>
-            </div>
+          {localizedPlace.calificacion != null && (
+            <span className="tourist-place-card__rating">
+              ★ {localizedPlace.calificacion.toFixed(1)}
+            </span>
           )}
-
-          {price != null && (
-            <div className="tourist-place-card__price">
-              <strong>{price}</strong>
-            </div>
+          {localizedPlace.precio_entrada != null && (
+            <span className="tourist-place-card__price">
+              Bs {localizedPlace.precio_entrada}
+            </span>
           )}
         </div>
 
-        <Link
-          className="tourist-place-card__link"
-          to={`/lugares-turisticos/${place.id}`}
-        >
-          {t("seeMore")} <span aria-hidden="true">→</span>
+        <Link className="tourist-place-card__link" to={`/lugares-turisticos/${place.id}`}>
+          {t("viewDetails")} <span aria-hidden="true">→</span>
         </Link>
       </div>
     </article>

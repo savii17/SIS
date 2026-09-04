@@ -76,6 +76,16 @@ export type LanguageContextValue = {
       | "servicesDescription"
       | "settingsDescription"
       | "administratorDescription"
+      | "featuredKicker"
+      | "featuredPlaces"
+      | "price"
+      | "rating"
+      | "coordinates"
+      | "routes"
+      | "duration"
+      | "distance"
+      | "transportType"
+      | "viewOnMap"
   ) => string;
 };
 

@@ -21,11 +21,13 @@ const translations = {
     touristPlaces: "Lugares turísticos",
     accommodations: "Hospedajes",
     restaurants: "Restaurantes",
+    events: "Eventos y Festividades",
     emergencies: "Emergencias",
     user: "Usuario",
     users: "Usuarios",
     categories: "Categorías",
     services: "Servicios",
+    reports: "Reportes",
     settings: "Configuración",
     administrator: "Administrador",
 
@@ -95,6 +97,8 @@ const translations = {
       "Administración de hoteles, hostales y alojamientos.",
     restaurantsDescription:
       "Gestión de restaurantes y opciones gastronómicas.",
+    eventsDescription:
+      "Gestión de eventos y festividades turísticas.",
     emergenciesDescription:
       "Directorio y control de servicios de emergencia.",
     userDescription:
@@ -103,6 +107,8 @@ const translations = {
       "Configuración de categorías para clasificar información turística.",
     servicesDescription:
       "Configuración de servicios disponibles en la plataforma.",
+    reportsDescription:
+      "Consulta y generación de reportes del sistema.",
     settingsDescription:
       "Opciones generales de configuración del sistema.",
     administratorDescription:
@@ -125,11 +131,13 @@ const translations = {
     touristPlaces: "Tourist places",
     accommodations: "Accommodations",
     restaurants: "Restaurants",
+    events: "Events and festivities",
     emergencies: "Emergencies",
     user: "User",
     users: "Users",
     categories: "Categories",
     services: "Services",
+    reports: "Reports",
     settings: "Settings",
     administrator: "Administrator",
 
@@ -199,6 +207,8 @@ const translations = {
       "Manage hotels, hostels and accommodations.",
     restaurantsDescription:
       "Manage restaurants and dining options.",
+    eventsDescription:
+      "Manage tourism events and festivities.",
     emergenciesDescription:
       "Directory and control of emergency services.",
     userDescription:
@@ -207,6 +217,8 @@ const translations = {
       "Configure categories for classifying tourist information.",
     servicesDescription:
       "Configure services available on the platform.",
+    reportsDescription:
+      "View and generate system reports.",
     settingsDescription:
       "General configuration options for the system.",
     administratorDescription:

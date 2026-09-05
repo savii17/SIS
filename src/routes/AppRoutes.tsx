@@ -34,6 +34,10 @@ function AppRoutes() {
             element={<PlaceholderPage title={t("restaurants")} description={t("restaurantsDescription")} />}
           />
           <Route
+            path="/eventos"
+            element={<PlaceholderPage title={t("events")} description={t("eventsDescription")} />}
+          />
+          <Route
             path="/emergencias"
             element={<PlaceholderPage title={t("emergencies")} description={t("emergenciesDescription")} />}
           />
@@ -48,6 +52,10 @@ function AppRoutes() {
           <Route
             path="/servicios"
             element={<PlaceholderPage title={t("services")} description={t("servicesDescription")} />}
+          />
+          <Route
+            path="/reportes"
+            element={<PlaceholderPage title={t("reports")} description={t("reportsDescription")} />}
           />
           <Route
             path="/configuracion"
